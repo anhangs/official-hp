@@ -1,0 +1,25 @@
+@use "@styles/_mixin.module";
+ 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  padding: 10px 50px;
+
+  .logo {
+    text-align: left;
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 50px;
+
+    li {
+      display: inline-block;
+      padding: 20px;
+    }
+  }
+}

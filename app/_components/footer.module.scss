@@ -1,0 +1,24 @@
+@use "@styles/_mixin.module";
+ 
+.footer {
+  position: relative;
+  min-height: 30vh;
+  overflow: hidden;
+  img {
+    position: absolute;
+    width: 200vw;
+    min-width: 3000px;
+    height: auto;
+    bottom: -10%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  } 
+  small {
+    text-align: center;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    
+  }
+}

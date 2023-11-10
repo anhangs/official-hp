@@ -1,0 +1,57 @@
+{
+  "name": "official-hp",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "dev-cross-env": "cross-env NODE_OPTIONS='--inspect' next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "gql_compile": "graphql-codegen",
+    "gql_watch": "graphql-codegen -w",
+    "storybook": "storybook dev -p 6006 -h 0.0.0.0",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.8.6",
+    "@apollo/server": "^4.9.4",
+    "@as-integrations/next": "^2.0.2",
+    "encoding": "^0.1.13",
+    "graphql": "^16.8.1",
+    "graphql-tag": "^2.12.6",
+    "next": "13.5.4",
+    "react": "^18",
+    "react-dom": "^18",
+    "sharp": "^0.32.6",
+    "storybook": "^7.5.2"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.0",
+    "@graphql-codegen/client-preset": "^4.1.0",
+    "@graphql-codegen/typescript": "^4.0.1",
+    "@graphql-codegen/typescript-resolvers": "^4.0.1",
+    "@storybook/addon-essentials": "^7.5.2",
+    "@storybook/addon-interactions": "^7.5.2",
+    "@storybook/addon-links": "^7.5.2",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.5.2",
+    "@storybook/nextjs": "^7.5.2",
+    "@storybook/react": "^7.5.2",
+    "@storybook/testing-library": "^0.2.2",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "cross-env": "^7.0.3",
+    "eslint": "^8",
+    "eslint-config-next": "13.5.4",
+    "eslint-plugin-storybook": "^0.6.15",
+    "express-serve-static-core": "^0.1.1",
+    "sass": "^1.69.1",
+    "typescript": "^5"
+  },
+  "volta": {
+    "node": "20.2.0",
+    "npm": "9.6.7"
+  }
+}

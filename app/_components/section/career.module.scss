@@ -1,0 +1,87 @@
+@use "@styles/_mixin.module";
+
+.career {
+  height: max-content;
+  min-height: 100vh;
+  width: 100%;
+  padding: 30px 0;
+  position: relative;
+
+  .title {
+    width: fit-content;
+    margin: 0 0 50px auto;
+    opacity: 0;
+    transform: translateX(200px);
+    transition: .5s;
+  }
+
+  .title.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .items {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .item {
+      text-align: center;
+
+      img {
+        margin-bottom: 50px;
+      }
+
+      h3,
+      p {
+        font-size: 20px;
+        font-weight: 400;
+        position: relative;
+      }
+
+    }
+  }
+}
+
+@include mixin.mq(lg) {
+  .career {
+    .items {
+      position: relative;
+      flex-direction: column;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+      gap: 80px;
+    }
+  }
+}
+
+@include mixin.mq(sm) {
+  .career {
+    .title {
+      transform: translateX(100px) scale(0.5);
+      transform-origin: bottom right;
+    }
+
+    .title.active {
+      transform: translateX(-50px) scale(0.5);
+    }
+  }
+}
+
+@include mixin.mq(xs) {
+  .career {
+      .title {
+        transform-origin: bottom center;
+      }
+  
+      .title.active {
+        transform: translateX(-30px) scale(0.5);
+      }
+    }
+}

@@ -1,0 +1,28 @@
+@use "@styles/theme.module.scss";
+
+.topButton {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 20px;
+  height: 150px;
+  cursor: pointer;
+  z-index: 2;
+  span {
+    display: inline-block;
+    width: 2px;
+    height: 150px;
+    background-color: theme.$default-color;
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      width: 2px;
+      height: 30px;
+      background-color: theme.$default-color;
+      top: -5px;
+      right: -10px;
+      transform: translateX(-50%) rotate(-40deg);
+    }
+  }
+}
