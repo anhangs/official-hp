@@ -10,9 +10,7 @@ export default function Page() {
       const positionTop = window.scrollY;
       const windowH = window.innerHeight;
       let zoom_level = window.devicePixelRatio || window.screen.availWidth / document.documentElement.clientWidth;
-      console.log(zoom_level)
       const barWidth = (positionTop / windowH) * zoom_level * 100;
-      console.log(barWidth)
       setWidth(barWidth);
     };
 

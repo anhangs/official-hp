@@ -12,6 +12,7 @@ import Skill from "./_components/section/skill";
 import Contact from "./_components/section/contact";
 import Hamburger from "./_components/hamburger/hamburger";
 import ReturnTopButton from "./_components/parts/topButton";
+import Noise from "./_components/global/noise";
 // import { Introduction } from "@/apollo/__generated__/client/graphql";
 
 export default async function Page() {
