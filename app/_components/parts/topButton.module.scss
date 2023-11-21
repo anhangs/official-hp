@@ -12,14 +12,14 @@
     display: inline-block;
     width: 2px;
     height: 150px;
-    background-color: theme.$default-color;
+    background-color: theme.$on-primary;
     position: relative;
     &::before {
       content: '';
       position: absolute;
       width: 2px;
       height: 30px;
-      background-color: theme.$default-color;
+      background-color: theme.$on-primary;
       top: -5px;
       right: -10px;
       transform: translateX(-50%) rotate(-40deg);

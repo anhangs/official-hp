@@ -2,15 +2,14 @@
 
 import Image from "next/image";
 
-import styles from "./hamburger.module.scss";
+import styles from "./menu.module.scss";
 import type { NextPage } from "next";
-import React, { useEffect, useRef, useState } from "react";
-import { useIntersectionObserver } from "@/app/hooks/use-intersection-observer";
+import React, { useEffect, useState } from "react";
 // import { Bitter } from "next/font/google";
 
 // const bitter = Bitter({ weight: "200", subsets: ['latin'] })
 
-const Hamburger: NextPage = () => {
+const Menu: NextPage = () => {
   // ハンバーガーメニューの表示簡易
   const [isMenuAppear, setIsMenuAppear] = useState(false);
   const scrollWindow = () => {
@@ -140,4 +139,4 @@ const Hamburger: NextPage = () => {
   );
 };
 
-export default Hamburger;
+export default Menu;

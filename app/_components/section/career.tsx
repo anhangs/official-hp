@@ -8,7 +8,7 @@ import SectionTitle from "../parts/sectionTitle";
 // import introduction from "@/apollo/query/introduction.gql";
 import Image from "next/image";
 // import { Noto_Sans_JP } from "next/font/google";
-import { useIntersectionObserver } from '@/app/hooks/use-intersection-observer'
+import { useIntersectionObserver } from '@/app/hooks/useIntersectionObserver'
 import { useRef } from "react";
 import { profileData } from "@/app/assets/profile";
 

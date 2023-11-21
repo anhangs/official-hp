@@ -20,7 +20,7 @@
 .hamburger_line {
   position: absolute;
   border-radius: 10px;
-  background-color: #000;
+  background-color: theme.$on-primary;
   transition: 0.5s;
 }
 
@@ -54,12 +54,12 @@
   span {
     top: 50%;
     transform: translate(-50%, -50%) rotate(15deg);
-    background-color: theme.$primary-color;
+    background-color: theme.$on-secondary;
 
     &::before {
       top: 50%;
       transform: translate(-50%, -50%) rotate(-30deg);
-      background-color: theme.$primary-color;
+      background-color: theme.$on-secondary;
     }
   }
 }
@@ -92,7 +92,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: theme.$primary-color;
+  color: theme.$on-secondary;
 }
 
 .menu_content {
@@ -118,7 +118,7 @@
       display: block;
       width: 200px;
       height: 2px;
-      background: theme.$primary-color;
+      background: theme.$on-secondary;
       margin: 20px auto 40px;
     }
     .sns {
@@ -136,7 +136,7 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: pink;
+  background: theme.$secondary;
   transform: scale(0);
   top: -50px;
   left: calc(50% - 50px);

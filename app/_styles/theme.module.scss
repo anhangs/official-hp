@@ -1,13 +1,17 @@
-$primary-color: #fff;
-$accent-color: #FFB6C1;
-$default-color: #2E2E2E;
-
-$background-color:#000;
+$primary: #141414;
+$on-primary: #fff;
+$secondary: #490f18;
+$on-secondary: #b6b6b6;
+$tertiary-color: #ffffff;
+$on-tertiary-color: #ffffff;
 
 :export {
-  primaryColor: $primary-color;
-  accentColor: $accent-color;
-  defaultColor: $default-color;
+  primary: $primary;
+  onPrimary: $on-primary;
+  accent: $secondary;
+  onAccent: $on-secondary;
+  tertiaryColor: $tertiary-color;
+  onTertiaryColor: $on-tertiary-color;
 }
 
 

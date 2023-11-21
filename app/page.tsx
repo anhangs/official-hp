@@ -10,9 +10,10 @@ import Profile from "./_components/section/profile";
 import Career from "./_components/section/career";
 import Skill from "./_components/section/skill";
 import Contact from "./_components/section/contact";
-import Hamburger from "./_components/hamburger/hamburger";
+import Menu from "./_components/global/menu";
 import ReturnTopButton from "./_components/parts/topButton";
 import Noise from "./_components/global/noise";
+import MovieBackground from "./_components/global/movieBackground";
 // import { Introduction } from "@/apollo/__generated__/client/graphql";
 
 export default async function Page() {
@@ -29,9 +30,8 @@ export default async function Page() {
   // console.log(r);
   return (
     <main className={styles.main}>
-      {/* HACK: pageはtemplateの中に表示される */}
-      <Hamburger></Hamburger>
       <ReturnTopButton></ReturnTopButton>
+      <div style={{ height: "10000px" }}></div>
     </main>
   );
 }

@@ -6,7 +6,7 @@ import variable from "@/app/_styles/theme.module.scss"
 import Image from "next/image";
 // import { Noto_Sans_JP } from "next/font/google";
 
-import { useIntersectionObserver } from '@/app/hooks/use-intersection-observer'
+import { useIntersectionObserver } from '@/app/hooks/useIntersectionObserver'
 import SectionTitle from "@/app/_components/parts/sectionTitle"
 import { useRef } from "react";
 

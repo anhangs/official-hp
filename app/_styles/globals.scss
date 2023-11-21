@@ -87,8 +87,10 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
 
-  color: #101010;
-  background: #f3f3f3;
+  color: theme.$on-primary;
+  background: theme.$primary;
+  // background-color: theme.$primary;
+
 
   cursor: none;
 }

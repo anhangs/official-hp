@@ -52,13 +52,29 @@ const Mouse: NextPage = () => {
     }
   }, []);
 
+
+  /**
+   * マウスストーカーの移動スピードを返す
+   * 　1. XとYの距離が5px以上離れている場合は0.25を返す
+   * 　2. XとYの距離が5px以内の場合は0.1を返す
+   * @param xDistance マウスポジションとマウスストーカーのX距離
+   * @param yDistance マウスポジションとマウスストーカーのY距離
+   * @returns 
+   */
+  const stalkerSpeed = (xDistance: number, yDistance: number): number => {
+    if(xDistance < 5 && yDistance < 5) return 0.1;
+    else return 0.25;
+  }
+
   /**
    * マウスストーカーをどれだけ進めるか？をstate更新する
    */
   const moveStalker = () => {
+    const xDistance = positionState.mouse.x - positionState.stalkerMoveTo.x;
+    const yDistance = positionState.mouse.y - positionState.stalkerMoveTo.y;
     setStalkerMoveToPosition({
-      x: positionState.stalkerMoveTo.x + (positionState.mouse.x - positionState.stalkerMoveTo.x) * 0.1,
-      y: positionState.stalkerMoveTo.y + (positionState.mouse.y - positionState.stalkerMoveTo.y) * 0.1
+      x: positionState.stalkerMoveTo.x + xDistance * stalkerSpeed(xDistance, yDistance),
+      y: positionState.stalkerMoveTo.y + yDistance * stalkerSpeed(xDistance, yDistance),
     });
     setStalkerMoveToRounded({
       x: Math.round(positionState.stalkerMoveTo.x * 10) / 10,
