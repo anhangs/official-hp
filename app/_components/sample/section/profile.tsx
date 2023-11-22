@@ -7,7 +7,7 @@ import Image from "next/image";
 // import { Noto_Sans_JP } from "next/font/google";
 
 import { useIntersectionObserver } from '@/app/hooks/useIntersectionObserver'
-import SectionTitle from "@/app/_components/parts/sectionTitle"
+import SectionTitle from "@/app/_components/sample/parts/sectionTitle"
 import { useRef } from "react";
 
 const showElements = (entries: IntersectionObserverEntry[]) => {

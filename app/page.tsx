@@ -1,17 +1,17 @@
-'use client'
+"use client";
 // import Image from "next/image";
 import styles from "./page.module.scss";
 
 // import { request } from "@/apollo/client";
 
 // import introduction from "@/apollo/query/introduction.gql";
-import KeyVisual from "./_components/section/keyVisual";
-import Profile from "./_components/section/profile";
-import Career from "./_components/section/career";
-import Skill from "./_components/section/skill";
-import Contact from "./_components/section/contact";
+import KeyVisual from "./_components/sample/section/keyVisual";
+import Profile from "./_components/sample/section/profile";
+import Career from "./_components/sample/section/career";
+import Skill from "./_components/sample/section/skill";
+import Contact from "./_components/sample/section/contact";
 import Menu from "./_components/global/menu";
-import ReturnTopButton from "./_components/parts/topButton";
+import ReturnTopButton from "./_components/global/topButton";
 import Noise from "./_components/global/noise";
 import MovieBackground from "./_components/global/movieBackground";
 // import { Introduction } from "@/apollo/__generated__/client/graphql";
@@ -30,6 +30,7 @@ export default async function Page() {
   // console.log(r);
   return (
     <main className={styles.main}>
+      <MovieBackground></MovieBackground>
       <ReturnTopButton></ReturnTopButton>
       <div style={{ height: "10000px" }}></div>
     </main>

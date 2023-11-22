@@ -62,8 +62,8 @@ const Mouse: NextPage = () => {
    * @returns 
    */
   const stalkerSpeed = (xDistance: number, yDistance: number): number => {
-    if(xDistance < 5 && yDistance < 5) return 0.1;
-    else return 0.25;
+    if(xDistance < 3 && yDistance < 3) return 0.1;
+    else return 0.5;
   }
 
   /**
@@ -81,10 +81,6 @@ const Mouse: NextPage = () => {
       y: Math.round(positionState.stalkerMoveTo.y * 10) / 10
     })
   }
-
-  useScrollSpeed((speed: number) => {
-    console.log(speed);
-  })
 
   /**
    * マウスポジションの変更を追跡する

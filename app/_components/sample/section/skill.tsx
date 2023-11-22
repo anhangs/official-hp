@@ -1,7 +1,7 @@
 'use client'
 import type { NextPage } from "next";
 import Image from "next/image";
-import { profileData } from "@/app/assets/profile";
+// import { profileData } from "@/app/assets/profile";
 
 // import { Introduction } from "@/apollo/__generated__/client/graphql";
 // import { request } from "@/apollo/client";
@@ -26,7 +26,7 @@ const Skill: NextPage = async () => {
 
   return (
     <>
-      <div id="skill" className={styles.skill}>
+      {/* <div id="skill" className={styles.skill}>
         <h2 className={styles.title}>Skill</h2>
         <div className={styles.items}>
           {profileData.skill.map((m) => {
@@ -45,7 +45,7 @@ const Skill: NextPage = async () => {
             );
           })}
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
