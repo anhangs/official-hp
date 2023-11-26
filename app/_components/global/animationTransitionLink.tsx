@@ -1,0 +1,47 @@
+'use client'
+
+import React, { useCallback } from "react";
+import Link from "next/link";
+import { NextPage } from "next";
+import { useTransitionRouterPush } from "@/app/_hooks/useTransitionRouterPush";
+import { useLoading } from "@/app/_hooks/useLoding";
+
+export type AnimationComponentProps = {
+  animationstart?: (event: AnimationEvent) => void;
+  animationend: (event: AnimationEvent) => void;
+  animationiteration?: (event: AnimationEvent) => void;
+};
+
+export const AnimationTransitionLink: NextPage<{
+  href: string;
+  children: React.ReactNode;
+}> = ({ href, children }) => {
+  const { routerPushWithTransition } = useTransitionRouterPush();
+  const { startLoading } = useLoading();
+
+  // リンククリック時の動作
+  const handleClick = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>) => {
+      e.preventDefault();
+
+      // ローディング画面呼び出し
+      startLoading();
+      // HACK: ローディングアニメーション0.75秒経過したタイミングで画面全てを覆うため、このタイミングで画面遷移をさせる
+      setTimeout(() => {
+        routerPushWithTransition(href);
+      }, 1500 * 0.5);
+
+    },
+    [routerPushWithTransition]
+  );
+
+  return (
+    <>
+      <Link href={href!} onClick={handleClick}>
+        {children}
+      </Link>
+    </>
+  );
+};
+
+export default AnimationTransitionLink;

@@ -28,12 +28,13 @@ const Menu: NextPage = () => {
       window.removeEventListener("scroll", scrollWindow);
     };
   }, []);
-  
+
   // ハンバーガーメニューの開閉管理
   const [expand, setExpand] = useState(false);
-  const appearStyle = isMenuAppear || expand
-    ? `${styles.fadein} ${styles.appear}`
-    : `${styles.fadein}`;
+  const appearStyle =
+    isMenuAppear || expand
+      ? `${styles.fadein} ${styles.appear}`
+      : `${styles.fadein}`;
   const hamburgerStyle = expand
     ? `${styles.hamburger_container} ${styles.active}`
     : `${styles.hamburger_container}`;
@@ -49,11 +50,9 @@ const Menu: NextPage = () => {
   const [scrollPosition, setScrollPosition] = useState({ x: 0, y: 0 });
   const expandMenu = async (event: React.UIEvent) => {
     const bodyElm = document.getElementsByTagName("body");
-    if(!expand) {
-
+    if (!expand) {
       setScrollPosition({ x: window.scrollX, y: window.scrollY });
-    }
-    else {
+    } else {
       window.scrollTo(scrollPosition.x, scrollPosition.y);
     }
     setExpand(!expand);
@@ -61,18 +60,17 @@ const Menu: NextPage = () => {
 
   useEffect(() => {
     const bodyElm = document.getElementsByTagName("body");
-    if(expand) {
-      if(bodyElm) {
+    if (expand) {
+      if (bodyElm) {
         bodyElm[0].style.position = "fixed";
         bodyElm[0].style.overflow = "hidden";
       }
-    }
-    else {
+    } else {
       bodyElm[0].style.position = "relative";
       bodyElm[0].style.overflow = "auto";
       window.scrollTo(scrollPosition.x, scrollPosition.y);
     }
-  },[expand])
+  }, [expand]);
   return (
     <>
       {/* ハンバーガーメニュー */}
@@ -80,27 +78,29 @@ const Menu: NextPage = () => {
         <span></span>
       </div>
       {/* メニュー本体 */}
-      <div className={menuStyle}>
-        <div className={styles.menu_content}>
-          {/* ナビゲーション部分 */}
-          <nav>
-            {/* <ul className={bitter.className}> */}
-            <ul>
-              <li>
-                <a href="#profile">Profile</a>
-              </li>
-              <li>
-                <a href="#career">Career</a>
-              </li>
-              <li>
-                <a href="#skill">Skill</a>
-              </li>
-              <li>
-                <a href="#contact">Contact</a>
-              </li>
-            </ul>
-          </nav>
-          {/* ロゴ部分 */}
+      {/* ナビゲーション部分 */}
+      {/* ロゴ部分 */}
+      <div className={backGround}>
+        <div className={menuStyle}>
+          <div className={styles.menu_content}>
+            <nav>
+              {/* <ul className={bitter.className}> */}
+              <ul>
+                <li>
+                  <a href="#profile">Profile</a>
+                </li>
+                <li>
+                  <a href="#career">Career</a>
+                </li>
+                <li>
+                  <a href="#skill">Skill</a>
+                </li>
+                <li>
+                  <a href="#contact">Contact</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
           <div className={styles.logo_sns}>
             <Image
               src="/logo.svg"
@@ -114,7 +114,7 @@ const Menu: NextPage = () => {
             <div className={styles.sns}>
               <a href="">
                 <Image
-                  src="/icon_x.svg"
+                  src="/logo.svg"
                   alt="key visual"
                   width={60}
                   height={60}
@@ -123,7 +123,7 @@ const Menu: NextPage = () => {
               </a>
               <a href="">
                 <Image
-                  src="/icon_instagram.svg"
+                  src="/logo.svg"
                   alt="key visual"
                   width={60}
                   height={60}
@@ -134,7 +134,6 @@ const Menu: NextPage = () => {
           </div>
         </div>
       </div>
-      <div className={backGround}></div>
     </>
   );
 };

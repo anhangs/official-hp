@@ -7,7 +7,6 @@ import { useEffect, useRef } from "react";
 const MovieBackground: NextPage = async () => {
   const ref = useRef(null);
   useEffect(() => {
-    console.log("useEffect");
     (ref.current! as HTMLVideoElement).playbackRate = 1.2;
   }, [ref])
   return (

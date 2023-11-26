@@ -4,9 +4,9 @@ import type { NextPage } from "next";
 import styles from "./mouse.module.scss";
 
 import { useEffect, useState } from "react";
-import useAnimationFrame from "@/app/hooks/useAnimationFrame"
-import useIsFinePointer from "@/app/hooks/useIsFinePointer";
-import useScrollSpeed from "@/app/hooks/useScrollSpeed";
+import useAnimationFrame from "@/app/_hooks/useAnimationFrame"
+import useIsFinePointer from "@/app/_hooks/useIsFinePointer";
+import useScrollSpeed from "@/app/_hooks/useScrollSpeed";
 
 type Position = { x: number, y: number };
 type PositionState = {

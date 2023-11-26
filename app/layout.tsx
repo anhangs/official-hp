@@ -9,6 +9,9 @@ import Mouse from './_components/global/mouse'
 import Menu from './_components/global/menu'
 import MovieBackground from './_components/global/movieBackground'
 import Opening from './_components/global/opening'
+import TransitionLink from './_components/global/transitionLink'
+import Curtain from './_components/global/curtain'
+import PageTransition from './_components/global/pageTransition'
 
 // const inter = Inter({ subsets: ['latin'] })
 
@@ -24,12 +27,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      {/* <body className={inter.className}> */}
       <body>
         <Noise></Noise>
         <Mouse></Mouse>
+        <PageTransition></PageTransition>
         <Menu></Menu>
-        <Opening children={children}></Opening>
+        <Opening>{children}</Opening>
         {/* <AppFooter></AppFooter> */}
       </body>
     </html>

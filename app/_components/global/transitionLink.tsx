@@ -1,0 +1,36 @@
+'use client'
+
+import { useTransitionRouterPush } from "@/app/_hooks/useTransitionRouterPush";
+import { NextPage } from "next";
+import Link from "next/link";
+import { FC, useCallback } from "react";
+
+type Props = {
+  href: string;
+  children: React.ReactNode;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+};
+
+export const TransitionLink: NextPage<Props> = ({ href, children, onClick }) => {
+  const { routerPushWithTransition } = useTransitionRouterPush();
+  const handleClick = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>) => {
+      e.preventDefault();
+      if (onClick) {
+        onClick(e);
+      }
+      routerPushWithTransition(e.currentTarget.href);
+    },
+    [routerPushWithTransition, onClick]
+  );
+
+  return (
+    <>
+      <Link href={href!} onClick={handleClick}>
+        {children}
+      </Link>
+    </>
+  );
+};
+
+export default TransitionLink;

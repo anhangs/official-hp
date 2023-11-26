@@ -1,15 +1,1 @@
 @use "@styles/_mixin.module";
-
-.test {
-  font-size: 64px;
-  font-weight: 700;
-  letter-spacing: 2em;
-
-  @include mixin.mq(md) {
-      color: yellow;
-  }
-
-  @include mixin.mq(sm) {
-      color: blue
-  }
-} 

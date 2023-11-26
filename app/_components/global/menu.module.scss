@@ -133,16 +133,20 @@
 .circle {
   position: fixed;
   z-index: 3;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+  width: 300vw;
+  height: 300vh;
   background: theme.$secondary;
-  transform: scale(0);
-  top: -50px;
-  left: calc(50% - 50px);
-  transition: all 1s;
+  transform: rotate(-90deg) translate3d(100vw, 0, 0);
+  transform-origin: 0 0;
+  top: 0;
+  left: 0;
+  transition: ease-in 0.75s;
+  will-change: transform;
 }
 
 .circle.active {
-  transform: scale(50);
+  transform: rotate(0deg) translate3d(0px, 0px, 0);
+  transform-origin: 0 0;
+  width: 150vw;
+  height: 150vh;
 }

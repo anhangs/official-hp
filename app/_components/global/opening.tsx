@@ -12,13 +12,13 @@ const Opening: NextPage<{ children: React.ReactNode; }>  = ({
     setIsLoading(true)
     setTimeout(() => {
       setIsLoading(false);
-    }, 2 * 1000)
+    }, 2 * 100)
   }, [])
   
   return (
     isLoading ? 
       <>
-        {"Loading"}
+        {"Opening Animation"}
       </>
       : 
       <>

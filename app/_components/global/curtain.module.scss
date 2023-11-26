@@ -1,0 +1,22 @@
+@use "@styles/theme.module.scss";
+
+.curtain {
+  width: 100vw; /* カーテンの幅 */
+  height: 100vh; /* カーテンの高さ */
+  background-color: theme.$secondary; /* カーテンの色 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: visible;
+  will-change: transform;
+}
+
+.open {
+  animation: move 1.5s ease-in-out forwards;
+}
+
+@keyframes move {
+  0% { transform: translateY(150vh); } /* 開始位置 */
+  50% { transform: translateY(0); }      /* 中間位置 */
+  100% { transform: translateY(-150vh); } /* 終了位置 */
+}
