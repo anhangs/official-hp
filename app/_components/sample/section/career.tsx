@@ -10,7 +10,7 @@ import Image from "next/image";
 // import { Noto_Sans_JP } from "next/font/google";
 import { useIntersectionObserver } from '@/app/_hooks/useIntersectionObserver'
 import { useRef } from "react";
-import { profileData } from "@/app/assets/profile";
+// import { profileData } from "@/app/assets/profile";
 
 // const notoSans = Noto_Sans_JP({ weight: "400", subsets: ['latin'] })
 const showElements = (entries: IntersectionObserverEntry[]) => {
@@ -49,7 +49,7 @@ const Career: NextPage = async () => {
       </div>
       {/* <div className={`${styles.items} ${notoSans.className}`}> */}
         <div className={styles.items}>
-          {
+          {/* {
             profileData.career.map((item:any) => {
               return (
                 <div className={styles.item} key={item.title}>
@@ -67,7 +67,7 @@ const Career: NextPage = async () => {
                 </div>
               )
             })
-          }
+          } */}
       </div>
     </div>
     </>
