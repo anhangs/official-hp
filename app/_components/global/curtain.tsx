@@ -5,13 +5,18 @@ import styles from "./curtain.module.scss";
 import { useEffect, useRef } from "react";
 import { AnimationComponentProps } from "./animationTransitionLink";
 
-const Curtain: NextPage<AnimationComponentProps> = ({ animationstart, animationend, animationiteration }) => {
+const Curtain: NextPage<AnimationComponentProps> = ({ animationstart, animationInterval, animationend, animationiteration }) => {
   const ref = useRef(null);
   useEffect(() => {
     const element = ref.current as unknown as HTMLDivElement;
     if (!element) return;
 
-    if(animationstart) element.addEventListener('animationstart', animationstart);
+    element.addEventListener('animationstart', (e: AnimationEvent) => {
+      if(animationstart) animationstart(e);
+      setTimeout(() => {
+        if(animationInterval) animationInterval(e);
+      }, 750)
+    });
     if(animationiteration) element.addEventListener('animationiteration', animationiteration);
     if(animationend) element.addEventListener('animationend', animationend);
 

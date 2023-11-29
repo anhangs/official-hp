@@ -1,0 +1,6 @@
+@use "@styles/_mixin.module";
+@use "@styles/theme.module.scss";
+
+@mixin transition-group {
+  view-transition-name: page-contents
+}

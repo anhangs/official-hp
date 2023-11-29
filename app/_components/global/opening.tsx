@@ -3,27 +3,27 @@
 import type { NextPage } from "next";
 import styles from "./opening.module.scss";
 import { useEffect, useState } from "react";
+import { useLoading } from "@/app/_hooks/useLoding";
 
 const Opening: NextPage<{ children: React.ReactNode; }>  = ({
   children,
 }: { children: React.ReactNode }) => {
-  const [isLoading, setIsLoading] = useState(true)
+  const [isOpening, setIsOpening] = useState(true);
+
   useEffect(() => {
-    setIsLoading(true)
+    setIsOpening(true)
     setTimeout(() => {
-      setIsLoading(false);
+      setIsOpening(false);
     }, 2 * 100)
   }, [])
-  
+
   return (
-    isLoading ? 
+    isOpening ? 
       <>
         {"Opening Animation"}
       </>
       : 
-      <>
-        {children}
-      </>
+      <>{children}</>
   );
 };
 

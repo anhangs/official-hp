@@ -3,9 +3,9 @@
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -91,7 +91,6 @@ body {
   background: theme.$primary;
   // background-color: theme.$primary;
 
-
   cursor: none;
 }
 
@@ -104,13 +103,38 @@ ul {
   list-style: none;
 }
 
-
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
 }
 
-html::-webkit-scrollbar{
+html::-webkit-scrollbar {
   display: none;
+}
+
+@keyframes swap-in {
+  // 0% { transform: translateY(150vh); } /* 開始位置 */
+  // 50% { transform: translateY(0); }      /* 中間位置 */
+  // 100% { transform: translateY(-150vh); } /* 終了位置 */
+}
+
+@keyframes swap-out {
+  // 0% { transform: translateY(150vh); } /* 開始位置 */
+  // 50% { transform: translateY(0); }      /* 中間位置 */
+  // 100% { transform: translateY(-150vh); } /* 終了位置 */
+}
+
+::view-transition-new(page-contents) {
+  // animation: swap-in 1.5s linear forwards;
+  // transition: ease-in-out;
+}
+
+::view-transition-old(page-contents) {
+  // animation: swap-out 1.5s linear forwards;
+  // transition: ease-in-out;
+}
+
+::view-transition-new {
+  animation: swap-in 1.5s linear forwards;
 }

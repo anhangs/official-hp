@@ -1,7 +1,10 @@
 @use "@styles/_mixin.module";
+@use "@styles/_page.module.scss";
 @use "@styles/theme.module.scss";
 
 .main {
+  @include page.transition-group;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;

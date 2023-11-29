@@ -1,16 +1,17 @@
 "use client";
 
-import Curtain from "./curtain";
 import { NextPage } from "next";
+import { useEffect, useState } from "react";
+import styles from "./pageTransition.module.scss";
 import { useLoading } from "@/app/_hooks/useLoding";
-import { useEffect } from "react";
-import { useTransitionRouterPush } from "@/app/_hooks/useTransitionRouterPush";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useViewTransition } from "@/app/_hooks/useViewTransition";
+import { delay } from "@/app/_lib/util";
+import Curtain from "./curtain";
 import {
   NavigateEvent,
-  NavigationApiNavigationType,
+  Navigation,
+  NavigationCurrentEntryChangeEvent,
 } from "@/@types/navigationApi";
-import { useViewTransition } from "@/app/_hooks/useViewTransition";
 
 /**
  * ページ遷移時のアニメーションコンポーネント
@@ -18,16 +19,26 @@ import { useViewTransition } from "@/app/_hooks/useViewTransition";
  *
  * @returns
  */
-const PageTransition: NextPage = () => {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const router = useRouter();
-
+const PageTransition: NextPage<{ children: React.ReactNode }> = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   const { isLoading, startLoading, endLoading } = useLoading();
-  const { routerPushWithTransition } = useTransitionRouterPush();
+  const [animationState, setAnimationState] = useState<
+    "initial" | "suspend" | "turnAround" | "complete"
+  >("initial");
 
+  const animationStart = () => {
+    startLoading();
+    setAnimationState("suspend");
+  };
+  const animationInterval = (event: AnimationEvent) => {
+    setAnimationState("turnAround");
+  };
   const animationend = (event: AnimationEvent) => {
     endLoading();
+    setAnimationState("complete");
   };
 
   const shouldNotIntercept = (navigationEvent: NavigateEvent) => {
@@ -40,77 +51,39 @@ const PageTransition: NextPage = () => {
     );
   };
 
+  const updateDom = async (e: NavigateEvent) => {
+    const { startViewTransition } = useViewTransition(async () => {
+      animationStart();
+    });
+
+    if (shouldNotIntercept(e)) return;
+    e.intercept({
+      handler: async () => {
+        startViewTransition();
+      },
+    });
+  };
+
+  const [previousNode, setPreviousNode] = useState<React.ReactNode>(null);
   useEffect(() => {
-    (window as any).navigation.addEventListener(
-      "navigate",
-      async (e: NavigateEvent) => {
-        const { startViewTransition } = useViewTransition(async () => {
-          return await new Promise((resolve, reject) => {
-            setTimeout(() => {
-              console.log("setTimeout");
-              // router.push(e.destination.url);
-              resolve();
-            }, 750);
-          });
-        });
-
-        // e.preventDefault();
-        const accept = ["traverse"] as NavigationApiNavigationType[];
-        if (shouldNotIntercept(e)) return;
-        if (!accept.some((s) => s == e.navigationType)) return;
-        // Exit early if this navigation shouldn't be intercepted.
-        // The properties to look at are discussed later in the article.
-        console.log(e);
-
-        startLoading();
-        e.intercept({
-          handler: async () => {
-            await startViewTransition();
-          },
-        });
-
-        // await useViewTransition(async () => {
-        //   console.log("useViewTransition");
-        //   startLoading();
-        //   return await new Promise((resolve, reject) => {
-        //     setTimeout(() => {
-        //       console.log("intercept");
-        //       // router.push(e.destination.url);
-        //       resolve();
-        //     }, 750);
-        //   });
-        // });
-        // e.preventDefault();
-
-        // e.intercept({
-        //   handler: async () => {
-        //     return new Promise((resolve, reject) => {
-        //       setTimeout(() => {
-        //         console.log("intercept");
-        //         resolve();
-        //       }, 750);
-        //     });
-        //   },
-        // });
-      }
-    );
-
-    const handlePopState = async (event: PopStateEvent) => {
-      event.preventDefault();
-      // ローディング画面呼び出し
-      startLoading();
-      // HACK: ローディングアニメーション0.75秒経過したタイミングで画面全てを覆うため、このタイミングで画面遷移をさせる
-      setTimeout(() => {
-        console.log("setTimeout");
-        return true;
-      }, 750);
+    (window as any).navigation.addEventListener("navigate", updateDom);
+    return () => {
+      (window as any).navigation.removeEventListener("navigate", updateDom);
     };
-
-    // window.addEventListener("popstate", handlePopState, false);
-    // return () => window.removeEventListener("popstate", handlePopState, false);
   }, []);
 
-  return <>{isLoading && <Curtain animationend={animationend} />}</>;
+  return (
+    <>
+      {isLoading ? (
+        <Curtain
+          animationInterval={animationInterval}
+          animationend={animationend}
+        ></Curtain>
+      ) : null}
+      {/* {animationState != "suspend" ? children : null} */}
+      {children}
+    </>
+  );
 };
 
 export default PageTransition;

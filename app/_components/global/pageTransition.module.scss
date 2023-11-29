@@ -1,0 +1,31 @@
+@use "@styles/theme.module.scss";
+
+.transition-group {
+  view-transition-name: page-content
+}
+
+@keyframes swap-in {
+  from {
+    visibility: hidden;
+  }
+  to {
+    visibility: visible;
+  }
+}
+
+@keyframes swap-out {
+  from {
+  }
+  to {
+  }
+}
+
+::view-transition-new(page-contents) {
+  animation: swap-in 1.5s linear forwards;
+  // transition: ease-in-out;
+}
+
+::view-transition-old(page-contents) {
+  animation: swap-out 1.5s linear forwards;
+  // transition: ease-in-out;
+}

@@ -1,1 +1,15 @@
 @use "@styles/_mixin.module";
+@use "@styles/_page.module.scss";
+@use "@styles/theme.module.scss";
+
+.main {
+  @include page.transition-group;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+  // cursor: none;
+}

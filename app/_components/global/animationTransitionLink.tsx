@@ -8,7 +8,8 @@ import { useLoading } from "@/app/_hooks/useLoding";
 
 export type AnimationComponentProps = {
   animationstart?: (event: AnimationEvent) => void;
-  animationend: (event: AnimationEvent) => void;
+  animationInterval?: (event: AnimationEvent) => void;
+  animationend?: (event: AnimationEvent) => void;
   animationiteration?: (event: AnimationEvent) => void;
 };
 

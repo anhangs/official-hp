@@ -4,7 +4,7 @@ import type { NextPage } from "next";
 import styles from "./movieBackground.module.scss";
 import { useEffect, useRef } from "react";
 
-const MovieBackground: NextPage = async () => {
+const MovieBackground: NextPage = () => {
   const ref = useRef(null);
   useEffect(() => {
     (ref.current! as HTMLVideoElement).playbackRate = 1.2;
