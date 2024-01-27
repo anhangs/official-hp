@@ -8,8 +8,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "gql_compile": "graphql-codegen",
-    "gql_watch": "graphql-codegen -w",
     "update": "npx npm-check-updates -u",
     "sandbox": "npx amplify sandbox"
   },
