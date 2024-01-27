@@ -1,4 +1,4 @@
-import Curtain from "./_components/global/curtain";
+import Curtain from './_components/transition/curtain';
 
 export default function Loading() {
   return <>

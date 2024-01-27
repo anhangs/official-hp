@@ -1,9 +1,15 @@
 'use client'
 
-import type { NextPage } from "next";
-import styles from "./curtain.module.scss";
-import { useEffect, useRef } from "react";
-import { AnimationComponentProps } from "./animationTransitionLink";
+import type { NextPage } from 'next';
+import styles from './curtain.module.scss';
+import { useEffect, useRef } from 'react';
+
+export type AnimationComponentProps = {
+  animationstart?: (event: AnimationEvent) => void;
+  animationInterval?: (event: AnimationEvent) => void;
+  animationend?: (event: AnimationEvent) => void;
+  animationiteration?: (event: AnimationEvent) => void;
+};
 
 const Curtain: NextPage<AnimationComponentProps> = ({ animationstart, animationInterval, animationend, animationiteration }) => {
   const ref = useRef(null);

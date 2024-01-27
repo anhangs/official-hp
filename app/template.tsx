@@ -1,10 +1,14 @@
+'use client'
+
+import { AnimatePresence, motion } from 'framer-motion';
+import PageTransition from './_components/transition/pageTransition';
+import { usePathname } from 'next/navigation';
+import { useEffect } from 'react';
+
 export default function Template({ children }: { children: React.ReactNode }) {
   return (
-    <div>
-      {/* HACK: templateはlayoutの中に表示される */}
-      {/* HACK: templateは画面遷移の度に再レンダリングされる */}
-      {/* <div>template</div> */}
-      {children}
-    </div>
+    <>
+      <AnimatePresence mode='wait'>{children}</AnimatePresence>
+    </>
   );
 }

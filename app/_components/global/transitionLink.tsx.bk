@@ -1,9 +1,9 @@
 'use client'
 
-import { useTransitionRouterPush } from "@/app/_hooks/useTransitionRouterPush";
-import { NextPage } from "next";
-import Link from "next/link";
-import { FC, useCallback } from "react";
+import { useTransitionRouterPush } from '@/app/_hooks/useTransitionRouterPush';
+import { NextPage } from 'next';
+import Link from 'next/link';
+import { FC, useCallback } from 'react';
 
 type Props = {
   href: string;

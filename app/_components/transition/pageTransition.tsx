@@ -1,17 +1,22 @@
-"use client";
+'use client';
 
-import { NextPage } from "next";
-import { useEffect, useState } from "react";
-import styles from "./pageTransition.module.scss";
-import { useLoading } from "@/app/_hooks/useLoding";
-import { useViewTransition } from "@/app/_hooks/useViewTransition";
-import { delay } from "@/app/_lib/util";
-import Curtain from "./curtain";
+import { NextPage } from 'next';
+import { useEffect, useState } from 'react';
+import styles from './pageTransition.module.scss';
+import { useLoading } from '@/app/_hooks/useLoding';
+import { useViewTransition } from '@/app/_hooks/useViewTransition';
 import {
   NavigateEvent,
   Navigation,
   NavigationCurrentEntryChangeEvent,
-} from "@/@types/navigationApi";
+} from '@/@types/navigationApi';
+import { usePathname } from 'next/navigation';
+import {
+  AnimatePresence,
+  LazyMotion,
+  domAnimation,
+  motion,
+} from 'framer-motion';
 
 /**
  * ページ遷移時のアニメーションコンポーネント
@@ -24,21 +29,22 @@ const PageTransition: NextPage<{ children: React.ReactNode }> = ({
 }: {
   children: React.ReactNode;
 }) => {
+  // 元々のコード
   const { isLoading, startLoading, endLoading } = useLoading();
   const [animationState, setAnimationState] = useState<
-    "initial" | "suspend" | "turnAround" | "complete"
-  >("initial");
+    'initial' | 'suspend' | 'turnAround' | 'complete'
+  >('initial');
 
   const animationStart = () => {
     startLoading();
-    setAnimationState("suspend");
+    setAnimationState('suspend');
   };
   const animationInterval = (event: AnimationEvent) => {
-    setAnimationState("turnAround");
+    setAnimationState('turnAround');
   };
   const animationend = (event: AnimationEvent) => {
     endLoading();
-    setAnimationState("complete");
+    setAnimationState('complete');
   };
 
   const shouldNotIntercept = (navigationEvent: NavigateEvent) => {
@@ -64,23 +70,20 @@ const PageTransition: NextPage<{ children: React.ReactNode }> = ({
     });
   };
 
-  const [previousNode, setPreviousNode] = useState<React.ReactNode>(null);
-  useEffect(() => {
-    (window as any).navigation.addEventListener("navigate", updateDom);
-    return () => {
-      (window as any).navigation.removeEventListener("navigate", updateDom);
-    };
-  }, []);
-
   return (
     <>
-      {isLoading ? (
-        <Curtain
-          animationInterval={animationInterval}
-          animationend={animationend}
-        ></Curtain>
-      ) : null}
-      {/* {animationState != "suspend" ? children : null} */}
+      {/* <AnimatePresence mode='wait' onExitComplete={() => alert('completed')}>
+        <motion.div
+          key={usePathname()}
+          initial={{ translateY: 200 }}
+          animate={{ translateY: 1 }}
+          exit={{ translateY: 200 }}
+          transition={{ duration: 1 }}
+        >
+          {children}
+        </motion.div>
+      </AnimatePresence> */}
+
       {children}
     </>
   );

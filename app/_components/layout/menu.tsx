@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import Image from "next/image";
+import Image from 'next/image';
 
-import styles from "./menu.module.scss";
-import type { NextPage } from "next";
-import React, { useEffect, useState } from "react";
-// import { Bitter } from "next/font/google";
+import styles from './menu.module.scss';
+import type { NextPage } from 'next';
+import React, { useEffect, useState } from 'react';
+// import { Bitter } from 'next/font/google';
 
-// const bitter = Bitter({ weight: "200", subsets: ['latin'] })
+// const bitter = Bitter({ weight: '200', subsets: ['latin'] })
 
 const Menu: NextPage = () => {
   // ハンバーガーメニューの表示簡易
@@ -23,9 +23,9 @@ const Menu: NextPage = () => {
     }
   };
   useEffect(() => {
-    window.addEventListener("scroll", scrollWindow);
+    window.addEventListener('scroll', scrollWindow);
     return () => {
-      window.removeEventListener("scroll", scrollWindow);
+      window.removeEventListener('scroll', scrollWindow);
     };
   }, []);
 
@@ -49,7 +49,7 @@ const Menu: NextPage = () => {
 
   const [scrollPosition, setScrollPosition] = useState({ x: 0, y: 0 });
   const expandMenu = async (event: React.UIEvent) => {
-    const bodyElm = document.getElementsByTagName("body");
+    const bodyElm = document.getElementsByTagName('body');
     if (!expand) {
       setScrollPosition({ x: window.scrollX, y: window.scrollY });
     } else {
@@ -59,15 +59,15 @@ const Menu: NextPage = () => {
   };
 
   useEffect(() => {
-    const bodyElm = document.getElementsByTagName("body");
+    const bodyElm = document.getElementsByTagName('body');
     if (expand) {
       if (bodyElm) {
-        bodyElm[0].style.position = "fixed";
-        bodyElm[0].style.overflow = "hidden";
+        bodyElm[0].style.position = 'fixed';
+        bodyElm[0].style.overflow = 'hidden';
       }
     } else {
-      bodyElm[0].style.position = "relative";
-      bodyElm[0].style.overflow = "auto";
+      bodyElm[0].style.position = 'relative';
+      bodyElm[0].style.overflow = 'auto';
       window.scrollTo(scrollPosition.x, scrollPosition.y);
     }
   }, [expand]);
@@ -87,44 +87,44 @@ const Menu: NextPage = () => {
               {/* <ul className={bitter.className}> */}
               <ul>
                 <li>
-                  <a href="#profile">Profile</a>
+                  <a href='#profile'>Profile</a>
                 </li>
                 <li>
-                  <a href="#career">Career</a>
+                  <a href='#career'>Career</a>
                 </li>
                 <li>
-                  <a href="#skill">Skill</a>
+                  <a href='#skill'>Skill</a>
                 </li>
                 <li>
-                  <a href="#contact">Contact</a>
+                  <a href='#contact'>Contact</a>
                 </li>
               </ul>
             </nav>
           </div>
           <div className={styles.logo_sns}>
             <Image
-              src="/logo.svg"
-              alt="key visual"
+              src='/logo.svg'
+              alt='key visual'
               width={450}
               height={300}
               priority
-              sizes="100vw"
+              sizes='100vw'
             ></Image>
             <span></span>
             <div className={styles.sns}>
-              <a href="">
+              <a href=''>
                 <Image
-                  src="/logo.svg"
-                  alt="key visual"
+                  src='/logo.svg'
+                  alt='key visual'
                   width={60}
                   height={60}
                   priority
                 ></Image>
               </a>
-              <a href="">
+              <a href=''>
                 <Image
-                  src="/logo.svg"
-                  alt="key visual"
+                  src='/logo.svg'
+                  alt='key visual'
                   width={60}
                   height={60}
                   priority
