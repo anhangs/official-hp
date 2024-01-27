@@ -72,7 +72,7 @@ const PageTransition: NextPage<{ children: React.ReactNode }> = ({
 
   return (
     <>
-      {/* <AnimatePresence mode='wait' onExitComplete={() => alert('completed')}>
+      <AnimatePresence mode='wait' onExitComplete={() => alert('completed')}>
         <motion.div
           key={usePathname()}
           initial={{ translateY: 200 }}
@@ -82,9 +82,9 @@ const PageTransition: NextPage<{ children: React.ReactNode }> = ({
         >
           {children}
         </motion.div>
-      </AnimatePresence> */}
+      </AnimatePresence>
 
-      {children}
+      {/* {children} */}
     </>
   );
 };

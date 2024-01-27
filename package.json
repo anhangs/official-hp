@@ -10,13 +10,15 @@
     "lint": "next lint",
     "gql_compile": "graphql-codegen",
     "gql_watch": "graphql-codegen -w",
-    "update": "npx npm-check-updates -u"
+    "update": "npx npm-check-updates -u",
+    "sandbox": "npx amplify sandbox"
   },
   "dependencies": {
     "@apollo/client": "^3.8.8",
     "@apollo/server": "^4.9.5",
     "@as-integrations/next": "^3.0.0",
     "@types/three": "^0.159.0",
+    "aws-amplify": "^6.0.13",
     "encoding": "^0.1.13",
     "framer-motion": "^10.16.16",
     "graphql": "^16.8.1",
@@ -30,6 +32,8 @@
     "zustand": "^4.4.7"
   },
   "devDependencies": {
+    "@aws-amplify/backend": "^0.10.2",
+    "@aws-amplify/backend-cli": "^0.9.7",
     "@graphql-codegen/cli": "^5.0.0",
     "@graphql-codegen/client-preset": "^4.1.0",
     "@graphql-codegen/typescript": "^4.0.1",
@@ -37,6 +41,9 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "aws-cdk": "^2.124.0",
+    "aws-cdk-lib": "^2.124.0",
+    "constructs": "^10.3.0",
     "cross-env": "^7.0.3",
     "eslint": "^8",
     "eslint-config-next": "^14.0.4",
@@ -44,7 +51,7 @@
     "glslify-loader": "^2.0.0",
     "raw-loader": "^4.0.2",
     "sass": "^1.69.5",
-    "typescript": "^5"
+    "typescript": "^5.3.3"
   },
   "volta": {
     "node": "20.2.0",
