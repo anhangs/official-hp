@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "update": "npx npm-check-updates -u",
+    "update": "npx npm-check-updates -u"
   },
   "dependencies": {
     "@as-integrations/next": "^3.0.0",
