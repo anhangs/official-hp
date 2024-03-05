@@ -1,0 +1,48 @@
+# Git ディレクトリとファイル
+.git
+.gitignore
+
+# Node.js 依存関係
+node_modules
+npm-debug.log
+yarn-error.log
+
+# ビルド出力
+.next
+out
+.build
+
+# 開発ツールの設定ファイル
+.eslintignore
+.eslintrc.json
+.prettierrc
+.prettierignore
+
+# OS生成ファイル
+.DS_Store
+Thumbs.db
+
+# テストファイル
+__tests__
+__mocks__
+
+# 環境設定ファイル
+.env.local
+.env.*local
+*.env.local
+*.env.*local
+*/.env.local
+*/.env.*local
+*/.env.*local*
+
+# IDE設定
+.idea
+.vscode
+
+# ログファイル
+*.log
+
+# その他不要なファイルやディレクトリ
+tmp
+temp
+*/.script/*
